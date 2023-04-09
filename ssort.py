@@ -1,4 +1,4 @@
-from tkinter import *
+import tkinter
 from tkinter import ttk
 import random
 from bubbleSort import bubble_sort
@@ -6,17 +6,17 @@ from quicksort import quick_sort
 from meregesort import merge_sort
 
 # Окно
-root = Tk()
+root = tkinter.Tk()
 root.title("Визуализации сортировок")
 root.maxsize(900, 600)
 root.config(bg="black")
-UI_frame = Frame(root, width=600, height=200, bg="purple")
+UI_frame = tkinter.Frame(root, width=600, height=200, bg="purple")
 UI_frame.grid(row=0, column=0, padx=10, pady=5)
-canvas = Canvas(root, width=650, height=380, bg="gold")
+canvas = tkinter.Canvas(root, width=650, height=380, bg="gold")
 canvas.grid(row=1, column=0, padx=10, pady=5)
 
 
-selected_alg = StringVar()
+selected_alg = tkinter.StringVar()
 data = []
 
 
@@ -71,8 +71,8 @@ def StartAlgorithm():
 
 
 # Кнопки
-Label(UI_frame, text="Algorithm: ", bg="pink").grid(
-    row=0, column=0, padx=5, pady=5, sticky=W
+tkinter.Label(UI_frame, text="Algorithm: ", bg="pink").grid(
+    row=0, column=0, padx=5, pady=5, sticky=tkinter.W
 )
 
 algMenu = ttk.Combobox(
@@ -83,54 +83,54 @@ algMenu = ttk.Combobox(
 algMenu.grid(row=0, column=1, padx=5, pady=5)
 algMenu.current(0)
 
-speedScale = Scale(
+speedScale = tkinter.Scale(
     UI_frame,
     from_=0,
     to=3.0,
     length=200,
     digits=2,
     resolution=0.1,
-    orient=HORIZONTAL,
+    orient=tkinter.HORIZONTAL,
     label="Скость [s]",
     bg="pink",
 )
-speedScale.grid(row=0, column=2, padx=5, pady=5, sticky=W)
-Button(UI_frame, text="Start", command=StartAlgorithm, bg="red").grid(
+speedScale.grid(row=0, column=2, padx=5, pady=5, sticky=tkinter.W)
+tkinter.Button(UI_frame, text="Start", command=StartAlgorithm, bg="red").grid(
     row=0, column=3, padx=5, pady=5
 )
-sizeEntry = Scale(
+sizeEntry = tkinter.Scale(
     UI_frame,
     from_=3,
     to=100,
     resolution=1,
-    orient=HORIZONTAL,
+    orient=tkinter.HORIZONTAL,
     label="N Элементов",
     bg="pink",
 )
 sizeEntry.grid(row=1, column=0, padx=5, pady=5)
 
-minEntry = Scale(
+minEntry = tkinter.Scale(
     UI_frame,
     from_=1,
     to=10,
     resolution=1,
-    orient=HORIZONTAL,
+    orient=tkinter.HORIZONTAL,
     label="Мин. Элемент",
     bg="pink",
 )
 minEntry.grid(row=1, column=1, padx=5, pady=5)
-maxEntry = Scale(
+maxEntry = tkinter.Scale(
     UI_frame,
     from_=10,
     to=100,
     resolution=1,
-    orient=HORIZONTAL,
+    orient=tkinter.HORIZONTAL,
     label="Макс. Элемент",
     bg="pink",
 )
 maxEntry.grid(row=1, column=2, padx=5, pady=5)
 
-Button(UI_frame, text="Generate", command=Generate, bg="pink").grid(
+tkinter.Button(UI_frame, text="Generate", command=Generate, bg="pink").grid(
     row=1, column=3, padx=5, pady=5
 )
 
